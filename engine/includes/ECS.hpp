@@ -196,6 +196,12 @@ public:
 class GraphicalSystem : public ISystem
 {
 public:
+
+    /**
+     * @brief Updates the graphical representation of entities
+     *
+     * @param ecs The ECS manager
+     */
     void update(ECS &ecs) override
     {
         for (auto entity : ecs.getEntities())
