@@ -26,12 +26,14 @@ fi
 # Install dependencies from vcpkg.json
 ./vcpkg install
 
+./vcpkg install sfml
+
 cd ..
 mkdir -p build
 cd build || exit
 
+cmake -B /lib -S . -DCMAKE_TOOLCHAIN_FILE=./scripts/buildsystems/vcpkg.cmake
 cmake -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake ..
 cmake --build .
-
 mv ./server/${SERVER_NAME} ../
 mv ./client/${CLIENT_NAME} ../
